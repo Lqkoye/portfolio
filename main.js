@@ -33,14 +33,14 @@
 
   /* 2. Apparition au scroll */
   const auto = [
-    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.wall-sub', '.hero-actions', '.section-head', '.project',
+    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-actions', '.section-head', '.project',
     '.about-text', '.link-arrow', '.mail-big', '.contact-sub',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
     '.project-images > *', '.project-nav', '.about-grid > *', '.about-section',
     '.contact-lines a', '.contact-page > p'
   ].join(',');
   document.querySelectorAll(auto).forEach(el => el.classList.add('reveal'));
-  document.querySelectorAll('.contact-lines a').forEach((a, i) => a.style.setProperty('--rd', `${i * 0.08}s`));
+  document.querySelectorAll('.contact-lines a, .reach-row').forEach((a, i, all) => a.style.setProperty('--rd', `${[...all].filter(x => x.parentElement === a.parentElement).indexOf(a) * 0.08}s`));
 
   const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo, .wall-board');
   if ('IntersectionObserver' in window) {

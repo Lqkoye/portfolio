@@ -107,30 +107,6 @@
   }));
 
 
-  /* 3d. Voie entre les prises du pan de contact */
-  const board = document.querySelector('.wall-board');
-  if (board) {
-    const svg = board.querySelector('.wall-route');
-    const path = svg.querySelector('path');
-    const drawRoute = () => {
-      const b = board.getBoundingClientRect();
-      if (getComputedStyle(svg).display === 'none') return;
-      svg.setAttribute('viewBox', `0 0 ${b.width} ${b.height}`);
-      const pts = [...board.querySelectorAll('.w-hold')].map(h => {
-        const cs = getComputedStyle(h);
-        return [parseFloat(cs.left), parseFloat(cs.top)];
-      });
-      let d = `M ${pts[0][0]} ${pts[0][1]}`;
-      for (let k = 1; k < pts.length; k++) {
-        const [x0, y0] = pts[k - 1], [x1, y1] = pts[k];
-        const mx = (x0 + x1) / 2;
-        d += ` C ${mx} ${y0}, ${mx} ${y1}, ${x1} ${y1}`;
-      }
-      path.setAttribute('d', d);
-    };
-    drawRoute();
-    addEventListener('resize', drawRoute);
-  }
 
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;

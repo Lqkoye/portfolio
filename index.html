@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -192,26 +192,33 @@
     </div>
 
     <div class="wall-board">
-      <svg class="wall-route" aria-hidden="true"><path/></svg>
-      <span class="mono wall-tag wall-tag--start">Départ ✋</span>
+      <div class="wall-bar">
+        <span class="mono wall-tag">Départ ✋</span>
+        <span class="mono wall-tag">Cotation 4a · facile, promis</span>
+      </div>
 
-      <a class="w-hold" href="tel:+33615795301" style="--c:var(--sapin); --on:var(--bg); --x:10%; --y:74%; --s:clamp(118px,11vw,150px); --r:42% 58% 63% 37% / 45% 41% 59% 55%; --d:10s;">
-        <span class="w-label">Appeler</span><span class="w-sub mono">06 15 79 53 01</span>
-      </a>
-      <a class="w-hold" href="CV-Nans-Jullien.pdf" target="_blank" rel="noopener" style="--c:var(--rose); --on:var(--ink); --x:28%; --y:38%; --s:clamp(130px,12vw,165px); --r:58% 42% 38% 62% / 52% 60% 40% 48%; --d:8s;">
-        <span class="w-label">Mon CV</span><span class="w-sub mono">PDF ↗</span>
-      </a>
-      <a class="w-hold w-hold--main" href="mailto:nans.gabjullien@gmail.com" style="--c:var(--accent); --on:var(--bg); --x:51%; --y:62%; --s:clamp(200px,20vw,270px); --r:38% 62% 54% 46% / 62% 38% 62% 38%; --d:11s;">
-        <span class="w-label">Écris-moi</span><span class="w-sub mono">nans.gabjullien@gmail.com</span>
-      </a>
-      <button type="button" class="w-hold" data-copy="nans.gabjullien@gmail.com" style="--c:var(--sun); --on:var(--ink); --x:71%; --y:27%; --s:clamp(120px,11vw,150px); --r:55% 45% 60% 40% / 40% 55% 45% 60%; --d:9s;">
-        <span class="w-label" data-copy-label>Copier</span><span class="w-sub mono">l'adresse email</span>
-      </button>
-      <a class="w-hold" href="#" target="_blank" rel="noopener" style="--c:var(--cobalt); --on:var(--bg); --x:89%; --y:60%; --s:clamp(124px,11.5vw,158px); --r:45% 55% 40% 60% / 58% 42% 58% 42%; --d:12s;">
-        <span class="w-label">LinkedIn</span><span class="w-sub mono">Profil ↗</span>
-      </a>
+      <div class="wall-grid">
+        <a class="w-hold" href="tel:+33615795301" style="--c:var(--sapin); --on:var(--bg); --r:42% 58% 63% 37% / 45% 41% 59% 55%; --oy:36px; --d:10s; --pd:.1s;">
+          <span class="w-label">Appeler</span><span class="w-sub mono">06 15 79 53 01</span>
+        </a>
+        <a class="w-hold" href="CV-Nans-Jullien.pdf" target="_blank" rel="noopener" style="--c:var(--rose); --on:var(--ink); --r:58% 42% 38% 62% / 52% 60% 40% 48%; --oy:-34px; --d:8s; --pd:.2s;">
+          <span class="w-label">Mon CV</span><span class="w-sub mono">PDF ↗</span>
+        </a>
+        <a class="w-hold w-hold--main" href="mailto:nans.gabjullien@gmail.com" style="--c:var(--accent); --on:var(--bg); --r:38% 62% 54% 46% / 62% 38% 62% 38%; --oy:8px; --d:11s; --pd:.3s;">
+          <span class="w-label">Écris-moi</span><span class="w-sub mono">nans.gabjullien@gmail.com</span>
+        </a>
+        <button type="button" class="w-hold" data-copy="nans.gabjullien@gmail.com" style="--c:var(--sun); --on:var(--ink); --r:55% 45% 60% 40% / 40% 55% 45% 60%; --oy:-46px; --d:9s; --pd:.4s;">
+          <span class="w-label" data-copy-label>Copier</span><span class="w-sub mono">l'adresse email</span>
+        </button>
+        <a class="w-hold" href="#" target="_blank" rel="noopener" style="--c:var(--cobalt); --on:var(--bg); --r:45% 55% 40% 60% / 58% 42% 58% 42%; --oy:24px; --d:12s; --pd:.5s;">
+          <span class="w-label">LinkedIn</span><span class="w-sub mono">Profil ↗</span>
+        </a>
+      </div>
 
-      <span class="mono wall-tag wall-tag--top">Top</span>
+      <div class="wall-bar wall-bar--bottom">
+        <span class="mono wall-note">Réponse sous 48 h</span>
+        <span class="mono wall-tag">Top ⛰</span>
+      </div>
     </div>
   </section>
 
@@ -237,6 +244,6 @@
   <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
 </footer>
 
-<script src="main.js" defer></script>
+<script src="main.js?v=7" defer></script>
 </body>
 </html>

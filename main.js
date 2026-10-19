@@ -57,8 +57,8 @@
   /* 3. Barre de progression */
   const bar = document.createElement('div');
   bar.className = 'progress';
-  document.body.append(bar);
   const nav = document.querySelector('.nav');
+  (nav || document.body).append(bar);
   const onScroll = () => {
     const h = root.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;

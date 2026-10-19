@@ -33,7 +33,7 @@
 
   /* 2. Apparition au scroll */
   const auto = [
-    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-links', '.hero-actions', '.section-head', '.project',
+    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.wall-sub', '.hero-actions', '.section-head', '.project',
     '.about-text', '.link-arrow', '.mail-big', '.contact-sub',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
     '.project-images > *', '.project-nav', '.about-grid > *', '.about-section',
@@ -42,7 +42,7 @@
   document.querySelectorAll(auto).forEach(el => el.classList.add('reveal'));
   document.querySelectorAll('.contact-lines a').forEach((a, i) => a.style.setProperty('--rd', `${i * 0.08}s`));
 
-  const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo');
+  const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo, .wall-board');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -76,7 +76,8 @@
     showToast.t = setTimeout(() => toast.classList.remove('show'), 2200);
   };
   document.querySelectorAll('[data-copy]').forEach(btn => {
-    const label = btn.textContent;
+    const tgt = btn.querySelector('[data-copy-label]') || btn;
+    const label = tgt.textContent;
     btn.addEventListener('click', async () => {
       const text = btn.dataset.copy;
       try {
@@ -86,10 +87,10 @@
         t.value = text; document.body.append(t); t.select();
         document.execCommand('copy'); t.remove();
       }
-      btn.textContent = 'Copiée ✓';
+      tgt.textContent = 'Copiée ✓';
       btn.classList.add('is-done');
       showToast('Adresse copiée dans le presse-papiers');
-      setTimeout(() => { btn.textContent = label; btn.classList.remove('is-done'); }, 2200);
+      setTimeout(() => { tgt.textContent = label; btn.classList.remove('is-done'); }, 2200);
     });
   });
 
@@ -104,6 +105,32 @@
   document.querySelectorAll('[data-top]').forEach(b => b.addEventListener('click', () => {
     scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   }));
+
+
+  /* 3d. Voie entre les prises du pan de contact */
+  const board = document.querySelector('.wall-board');
+  if (board) {
+    const svg = board.querySelector('.wall-route');
+    const path = svg.querySelector('path');
+    const drawRoute = () => {
+      const b = board.getBoundingClientRect();
+      if (getComputedStyle(svg).display === 'none') return;
+      svg.setAttribute('viewBox', `0 0 ${b.width} ${b.height}`);
+      const pts = [...board.querySelectorAll('.w-hold')].map(h => {
+        const cs = getComputedStyle(h);
+        return [parseFloat(cs.left), parseFloat(cs.top)];
+      });
+      let d = `M ${pts[0][0]} ${pts[0][1]}`;
+      for (let k = 1; k < pts.length; k++) {
+        const [x0, y0] = pts[k - 1], [x1, y1] = pts[k];
+        const mx = (x0 + x1) / 2;
+        d += ` C ${mx} ${y0}, ${mx} ${y1}, ${x1} ${y1}`;
+      }
+      path.setAttribute('d', d);
+    };
+    drawRoute();
+    addEventListener('resize', drawRoute);
+  }
 
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;

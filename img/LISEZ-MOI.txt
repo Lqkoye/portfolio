@@ -1,37 +1,24 @@
-DOSSIER IMAGES — Nans Jullien Portfolio
-========================================
+DOSSIER IMAGES — Portfolio Nans Jullien
+=======================================
 
-Dépose ici les visuels de tes projets. Le site les cherche à ces emplacements :
+Dépose tes visuels ici, puis envoie-les à Claude ou remplace toi-même les blocs.
 
-PAGE D'ACCUEIL (vignettes des projets) :
-  img/projet-1.jpg   → Back-office Qwamplify
-  img/projet-2.jpg   → Site client
-  img/projet-3.jpg   → Climbing Analyzer
-  img/projet-4.jpg   → Resonnance
+ACCUEIL (aperçu des projets, visible au survol sur ordinateur et en carte sur mobile)
+  img/projet-1.jpg … img/projet-4.jpg
+  Dans index.html, chaque projet contient :
+      <span class="prow-thumb" aria-hidden="true"><span class="ph-num">01</span></span>
+  Remplace l'intérieur par :
+      <span class="prow-thumb" aria-hidden="true"><img src="img/projet-1.jpg" alt=""></span>
 
-PAGES PROJET (visuel principal + galerie) :
-  img/projet-1-hero.jpg
-  img/projet-1-01.jpg, img/projet-1-02.jpg ...
-  (idem pour projet-2, 3, 4)
+PAGES PROJET (visuel principal + galerie)
+  img/projet-1-hero.jpg, img/projet-1-01.jpg, img/projet-1-02.jpg …
+  Remplace chaque bloc <div class="placeholder">…</div> par <img src="…" alt="Description">
 
-PORTRAIT (page à propos) :
-  img/portrait.jpg
+PORTRAIT (page À propos)
+  img/portrait.jpg — remplace le bloc placeholder du portrait.
 
-COMMENT ÇA MARCHE :
-Pour l'instant chaque emplacement affiche un bloc de couleur (accueil) ou
-un rectangle hachuré (pages projet). Pour mettre ta vraie image, ouvre le
-fichier HTML concerné et remplace TOUT le bloc qui commence par
-<div class="placeholder"> et finit par </div>, par exemple :
-
-    <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">01</span></div>
-
-par :
-
-    <img src="img/projet-1.jpg" alt="Description de l'image">
-
-FORMATS CONSEILLÉS :
-  - Vignettes accueil : 1200 × 900 px (ratio 4:3)
-  - Visuel principal projet : 1600 × 900 px (ratio 16:9)
-  - Portrait : 900 × 1200 px (ratio 3:4)
-  - .jpg pour les photos, .png si besoin de transparence
-  - Compresse-les (tinypng.com) pour que le site reste rapide.
+FORMATS CONSEILLÉS
+  Aperçus accueil : 1200 × 900 px (4:3)
+  Visuel principal projet : 1600 × 900 px (16:9)
+  Portrait : 900 × 1200 px (3:4)
+  Compresse-les (tinypng.com) pour garder un site rapide.

@@ -22,20 +22,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
 <a class="skip" href="#contenu">Aller au contenu</a>
 
 <header class="nav">
-  <a href="index.html" class="nav-logo">Nans Jullien</a>
-  <nav class="nav-links">
-    <a href="#projets">Projets</a>
-    <a href="a-propos.html">À propos</a>
-    <a href="contact.html">Contact</a>
-    <a href="contact.html" class="nav-status">Disponible</a>
+  <a href="index.html" class="nav-logo" aria-label="Nans Jullien, accueil">Nans Jullien</a>
+  <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#projets" data-nav="projets">Projets</a>
+      <a href="#a-propos" data-nav="apropos">À propos</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+      <span class="nav-ind" aria-hidden="true"></span>
   </nav>
+  <div class="nav-end">
+    <span class="mono nav-dispo">Disponible</span>
+    <a href="mailto:nans.gabjullien@gmail.com" class="nav-cta">Écris-moi <i>↗</i></a>
+  </div>
 </header>
 
 <main id="contenu">
@@ -236,6 +240,6 @@
   <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
 </footer>
 
-<script src="main.js?v=10" defer></script>
+<script src="main.js?v=11" defer></script>
 </body>
 </html>

@@ -136,6 +136,41 @@
     run();
   }
 
+
+  /* 3e. Navigation : prise qui suit la section active */
+  const ind = document.querySelector('.nav-ind');
+  if (ind) {
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const moveTo = a => {
+      if (!a) { ind.classList.remove('on'); return; }
+      const box = a.parentElement.getBoundingClientRect(), r = a.getBoundingClientRect();
+      ind.style.setProperty('--ix', `${r.left - box.left + r.width / 2 - 4.5}px`);
+      ind.style.setProperty('--ir', `${(links.indexOf(a) + 1) * 70}deg`);
+      ind.classList.add('on');
+    };
+    const current = () => links.find(a => a.classList.contains('is-active') || a.getAttribute('aria-current') === 'page');
+    const sections = links.map(a => a.getAttribute('href')).filter(h => h.startsWith('#')).map(h => document.querySelector(h)).filter(Boolean);
+    if (sections.length) {
+      const spyScroll = () => {
+        const mid = innerHeight * 0.4;
+        let hit = null;
+        sections.forEach(sec => { const r = sec.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) hit = sec; });
+        links.forEach(a => a.classList.toggle('is-active', !!hit && a.getAttribute('href') === '#' + hit.id));
+        moveTo(current());
+      };
+      addEventListener('scroll', spyScroll, { passive: true });
+      spyScroll();
+    } else {
+      moveTo(current());
+    }
+    links.forEach(a => {
+      a.addEventListener('mouseenter', () => moveTo(a));
+      a.addEventListener('mouseleave', () => moveTo(current()));
+    });
+    addEventListener('resize', () => moveTo(current()));
+    document.fonts && document.fonts.ready.then(() => moveTo(current()));
+  }
+
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;
 

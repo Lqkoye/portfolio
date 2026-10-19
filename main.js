@@ -4,6 +4,18 @@
   root.classList.add('js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* 0. Statistiques de visite (GoatCounter, sans cookies)
+     Pour activer : crée un compte gratuit sur goatcounter.com, puis mets ton code ci-dessous.
+     Exemple : const GOATCOUNTER = 'nansjullien'; */
+  const GOATCOUNTER = '';
+  if (GOATCOUNTER && location.hostname !== 'localhost') {
+    const gc = document.createElement('script');
+    gc.async = true;
+    gc.src = 'https://gc.zgo.at/count.js';
+    gc.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+    document.head.append(gc);
+  }
+
   /* 1. Découpe des titres en mots (révélation masquée) */
   const makeWord = (content, i) => {
     const w = document.createElement('span');
@@ -34,15 +46,14 @@
   /* 2. Apparition au scroll */
   const auto = [
     '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-actions', '.section-head', '.project',
-    '.about-text', '.link-arrow', '.mail-big', '.contact-sub',
+    '.link-arrow',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
-    '.project-images > *', '.project-nav', '.about-grid > *', '.about-section',
-    '.contact-lines a', '.contact-page > p'
+    '.project-images > *', '.project-nav', '.about-grid > *', '.about-section', '.about-cta'
   ].join(',');
   document.querySelectorAll(auto).forEach(el => el.classList.add('reveal'));
-  document.querySelectorAll('.contact-lines a, .reach-row').forEach((a, i, all) => a.style.setProperty('--rd', `${[...all].filter(x => x.parentElement === a.parentElement).indexOf(a) * 0.08}s`));
+  document.querySelectorAll('.reach-row').forEach(row => row.style.setProperty('--rd', `${[...row.parentElement.children].indexOf(row) * 0.08}s`));
 
-  const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo, .wall-board');
+  const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -66,7 +77,6 @@
   };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
 
   /* 3b. Copier l'adresse email */
   let toast;
@@ -96,7 +106,6 @@
     });
   });
 
-
   /* 3c. Horloge d'Aix + retour en haut */
   const clocks = document.querySelectorAll('[data-clock]');
   const tick = () => {
@@ -108,9 +117,6 @@
     scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   }));
 
-
-
-
   /* 3d. Sangles : défilement lié au scroll */
   const tapes = document.querySelector('.tapes');
   if (tapes && !reduce) {
@@ -118,9 +124,14 @@
     const tracks = [...tapes.querySelectorAll('.tape-track')].map(el => ({
       el, dir: +el.dataset.dir || 1, x: 0, half: el.scrollWidth / 2
     }));
-    let lastY = scrollY, vel = 0, scrollDir = 1;
+    let lastY = scrollY, vel = 0, scrollDir = 1, visible = true, raf = 0;
     addEventListener('resize', () => tracks.forEach(t => { t.half = t.el.scrollWidth / 2; }));
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(run);
+    }).observe(tapes);
     const run = () => {
+      if (!visible) { raf = 0; return; }
       const dy = scrollY - lastY; lastY = scrollY;
       if (dy !== 0) scrollDir = dy > 0 ? 1 : -1;
       vel += (Math.abs(dy) - vel) * 0.1;
@@ -131,11 +142,10 @@
         if (t.x > 0) t.x -= t.half;
         t.el.style.transform = `translate3d(${t.x.toFixed(2)}px,0,0)`;
       });
-      requestAnimationFrame(run);
+      raf = requestAnimationFrame(run);
     };
-    run();
+    raf = requestAnimationFrame(run);
   }
-
 
   /* 3e. Navigation : prise qui suit la section active */
   const ind = document.querySelector('.nav-ind');

@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -41,18 +41,35 @@
   </div>
 </header>
 
-<main id="contenu" class="contact-page">
-  <h1 data-split>Parlons-<em style="font-style:italic;color:var(--accent);font-weight:500">en.</em></h1>
-  <p class="hero-sub" style="max-width:46ch;">Un poste, une mission, un projet ou juste une question — écris-moi, je réponds vite.</p>
-
-  <div class="contact-lines">
-    <div class="mail-line"><a href="mailto:nans.gabjullien@gmail.com">nans.gabjullien@gmail.com</a><button type="button" class="copy-btn" data-copy="nans.gabjullien@gmail.com">Copier</button></div>
-    <a href="tel:+33615795301">06 15 79 53 01</a>
-    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="CV-Nans-Jullien.pdf" target="_blank" rel="noopener">Télécharger mon CV (PDF)</a>
+<main id="contenu" class="reach reach--page">
+  <div class="reach-intro">
+    <p class="mono">Contact</p>
+    <h1 data-split>Un projet <em>en tête ?</em></h1>
+    <p class="reach-sub">Un poste, une mission ou une simple question : écris-moi, je réponds sous 48 h. Basé à Aix-en-Provence, disponible en poste comme en mission, remote possible.</p>
   </div>
 
-  <p class="mono" style="margin-top:50px; color:var(--gray);">Basé à Aix-en-Provence · Disponible en poste comme en mission · Remote possible</p>
+  <ul class="reach-list">
+    <li class="reach-row reach-row--main">
+      <span class="mono reach-label">Email</span>
+      <a href="mailto:nans.gabjullien@gmail.com" class="reach-value">nans.gabjullien@gmail.com</a>
+      <button type="button" class="pill" data-copy="nans.gabjullien@gmail.com">Copier</button>
+    </li>
+    <li class="reach-row">
+      <span class="mono reach-label">Téléphone</span>
+      <a href="tel:+33615795301" class="reach-value">06 15 79 53 01</a>
+      <i class="reach-arrow" aria-hidden="true">→</i>
+    </li>
+    <li class="reach-row">
+      <span class="mono reach-label">LinkedIn</span>
+      <a href="#" class="reach-value" target="_blank" rel="noopener">Voir mon profil</a>
+      <i class="reach-arrow" aria-hidden="true">↗</i>
+    </li>
+    <li class="reach-row">
+      <span class="mono reach-label">CV</span>
+      <a href="CV-Nans-Jullien.pdf" class="reach-value" target="_blank" rel="noopener">Télécharger (PDF)</a>
+      <i class="reach-arrow" aria-hidden="true">↓</i>
+    </li>
+  </ul>
 </main>
 
 <footer class="site-foot">
@@ -75,6 +92,6 @@
   <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
 </footer>
 
-<script src="main.js?v=12" defer></script>
+<script src="main.js?v=13" defer></script>
 </body>
 </html>

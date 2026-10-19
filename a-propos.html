@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -46,7 +46,8 @@
 
   <div class="about-grid">
     <div class="about-portrait">
-      <div class="placeholder" style="height:100%;"><span class="mono">Portrait</span></div>
+      <!-- REMPLACER par : <img src="img/portrait.jpg" alt="Portrait de Nans Jullien"> -->
+      <div class="placeholder"><span class="mono">Portrait à venir</span></div>
     </div>
     <div class="about-bio">
       <p>Designer formé à la direction artistique, je conçois des interfaces claires et des identités visuelles qui tiennent debout.</p>
@@ -86,15 +87,18 @@
 
   <div class="about-section">
     <h2>Parcours</h2>
-    <div class="about-list">
-      <span>Mastère Direction Artistique — Ynov Aix</span>
-      <span>Licence Création / Digital Design</span>
-      <span>3 ans · Qwamplify</span>
-    </div>
+    <ol class="topo topo--light" aria-label="Parcours">
+      <li class="is-now" style="--rd:.05s"><span class="mono topo-step">Aujourd'hui</span><strong>Disponible</strong><span class="topo-sub">UX/UI design et graphisme, en poste ou en mission</span></li>
+      <li style="--rd:.15s"><span class="mono topo-step">2022 — 2024</span><strong>Mastère Direction Artistique</strong><span class="topo-sub">Spécialité UX/UI · Ynov Aix</span></li>
+      <li style="--rd:.25s"><span class="mono topo-step">2021 — 2024</span><strong>Alternance Graphiste / UI UX</strong><span class="topo-sub">Qwamplify · agence de marketing digital</span></li>
+      <li style="--rd:.35s"><span class="mono topo-step">2021</span><strong>Stage Graphiste / Webdesign</strong><span class="topo-sub">Resonnance</span></li>
+      <li style="--rd:.45s"><span class="mono topo-step">2019 — 2022</span><strong>Licence Création & Digital Design</strong><span class="topo-sub">Ynov Aix</span></li>
+    </ol>
   </div>
 
-  <div class="about-section" style="border-top:2px solid var(--ink); margin-top:60px;">
-    <a href="contact.html" class="link-arrow" style="margin-top:20px;">Me contacter →</a>
+  <div class="about-cta">
+    <p class="about-cta-text">Un projet, un poste, une question ?</p>
+    <a href="contact.html" class="btn btn-primary">Me contacter <i>→</i></a>
   </div>
 </main>
 
@@ -118,6 +122,6 @@
   <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
 </footer>
 
-<script src="main.js?v=12" defer></script>
+<script src="main.js?v=13" defer></script>
 </body>
 </html>

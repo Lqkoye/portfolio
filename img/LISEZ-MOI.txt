@@ -18,10 +18,12 @@ PORTRAIT (page à propos) :
   img/portrait.jpg
 
 COMMENT ÇA MARCHE :
-Pour l'instant chaque emplacement affiche un rectangle hachuré "placeholder".
-Pour mettre ta vraie image, ouvre le fichier HTML concerné et remplace le bloc :
+Pour l'instant chaque emplacement affiche un bloc de couleur (accueil) ou
+un rectangle hachuré (pages projet). Pour mettre ta vraie image, ouvre le
+fichier HTML concerné et remplace TOUT le bloc qui commence par
+<div class="placeholder"> et finit par </div>, par exemple :
 
-    <div class="placeholder"><span class="mono">Visuel projet 01</span></div>
+    <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">01</span></div>
 
 par :
 

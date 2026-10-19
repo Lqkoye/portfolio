@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nans Jullien — UX/UI Designer & Graphiste</title>
 <meta name="description" content="Nans Jullien, UX/UI Designer et graphiste basé à Aix-en-Provence. Interfaces, identités visuelles et design produit.">
+<meta name="theme-color" content="#FAFAF7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
     <a href="#projets">Projets</a>
     <a href="a-propos.html">À propos</a>
     <a href="contact.html">Contact</a>
-    <a href="#" class="nav-status">● Disponible</a>
+    <a href="contact.html" class="nav-status">Disponible</a>
   </nav>
 </header>
 
@@ -28,84 +29,125 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-shapes" aria-hidden="true">
+      <div class="hold h1" data-depth="34">
+        <svg viewBox="0 0 200 200"><path d="M104 14c34 4 70 28 78 64 8 36-14 70-40 90-26 20-62 26-90 12S8 132 10 100 22 40 48 24c18-11 36-12 56-10z"/><circle class="h-rim" cx="100" cy="98" r="9"/><circle class="h-in" cx="100" cy="98" r="3.5"/></svg>
+      </div>
+      <div class="hold h2" data-depth="60">
+        <svg viewBox="0 0 200 200"><path d="M30 92c-4-30 20-58 54-62 34-4 54 12 78 10s38 18 34 46c-4 28-28 50-62 56-34 6-56-6-76-18S34 122 30 92z"/><circle class="h-rim" cx="102" cy="96" r="9"/><circle class="h-in" cx="102" cy="96" r="3.5"/></svg>
+      </div>
+      <div class="hold h3" data-depth="22">
+        <svg viewBox="0 0 200 200"><path d="M24 112c-8-34 18-62 50-74s80-14 98 12 10 66-20 88-70 26-96 18S28 132 24 112z"/><circle class="h-rim" cx="100" cy="100" r="9"/><circle class="h-in" cx="100" cy="100" r="3.5"/></svg>
+      </div>
+      <div class="hold hold--star h4" data-depth="80">
+        <svg viewBox="0 0 200 200"><path d="M100 18l24 50 54 8-39 38 9 54-48-25-48 25 9-54-39-38 54-8z"/><circle class="h-rim" cx="100" cy="104" r="10"/><circle class="h-in" cx="100" cy="104" r="4"/></svg>
+      </div>
+      <div class="hold h5" data-depth="44">
+        <svg viewBox="0 0 200 200"><path d="M100 20c44 0 80 30 80 76 0 46-34 84-80 84S20 150 20 100c0-46 36-80 80-80z"/><circle class="h-rim" cx="100" cy="100" r="10"/><circle class="h-in" cx="100" cy="100" r="4"/></svg>
+      </div>
+    </div>
+
     <p class="mono hero-kicker">UX/UI Designer · Graphiste — Aix · Marseille</p>
-    <h1>Je conçois des interfaces claires et des identités qui tiennent debout.</h1>
-    <p class="hero-sub">Trois ans en agence sur des projets web et produit, un Mastère en direction artistique, et une obsession pour les systèmes : grilles, composants, cohérence.</p>
-    <div class="hero-actions">
-      <a href="#projets" class="btn btn-primary">Voir les projets</a>
-      <a href="CV-Nans-Jullien.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Télécharger mon CV (PDF)</a>
+    <h1 class="hero-title" data-split>Je conçois des interfaces <em>claires</em> et des identités qui tiennent debout.</h1>
+    <p class="hero-sub" style="--rd:.5s">Trois ans en agence sur des projets web et produit, un Mastère en direction artistique, et une obsession pour les systèmes : grilles, composants, cohérence.</p>
+    <div class="hero-actions" style="--rd:.65s">
+      <a href="#projets" class="btn btn-primary">Voir les projets <i>↓</i></a>
+      <a href="CV-Nans-Jullien.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Mon CV (PDF) <i>↗</i></a>
+    </div>
+
+    <div class="hero-foot">
+      <span class="mono scroll-hint"><i>↓</i> Défiler</span>
+      <span class="mono">Basé à Aix-en-Provence · 43.53°N 5.45°E</span>
     </div>
   </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>UX/UI Design</span><b>✦</b><span>Graphisme</span><b>✦</b><span>Identité visuelle</span><b>✦</b><span>Design system</span><b>✦</b><span>Print & web</span><b>✦</b><span>Direction artistique</span><b>✦</b>
+      <span>UX/UI Design</span><b>✦</b><span>Graphisme</span><b>✦</b><span>Identité visuelle</span><b>✦</b><span>Design system</span><b>✦</b><span>Print & web</span><b>✦</b><span>Direction artistique</span><b>✦</b>
+    </div>
+  </div>
 
   <!-- PROJETS -->
   <section class="projects" id="projets">
     <div class="section-head">
-      <h2 class="mono">Projets sélectionnés</h2>
+      <h2>Projets sélectionnés</h2>
       <span class="mono section-count">(04)</span>
     </div>
 
-    <!-- PROJET 1 -->
-    <a class="project" href="projet-1.html">
+    <!-- PROJET 1 — cobalt -->
+    <a class="project" href="projet-1.html" style="--pc:#2A40E0; --pc-on:#FAFAF7; --pc-t:#2A40E0;">
       <div class="project-visual">
-        <!-- REMPLACER : glisse ton image ici (img/projet-1.jpg) -->
-        <div class="placeholder"><span class="mono">Visuel projet 01</span></div>
+        <!-- REMPLACER tout le bloc <div class="placeholder">…</div> par : <img src="img/projet-1.jpg" alt="…"> -->
+        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">01</span></div>
       </div>
       <div class="project-info">
         <p class="mono project-meta">2024 · Design produit</p>
         <h3>Back-office Qwamplify</h3>
         <p class="project-desc">Refonte d'interfaces de back-office : architecture de l'information, parcours utilisateurs et composants réutilisables.</p>
+        <span class="mono project-cta">Voir le projet <i>→</i></span>
       </div>
     </a>
 
-    <!-- PROJET 2 -->
-    <a class="project" href="projet-2.html">
+    <!-- PROJET 2 — sapin -->
+    <a class="project" href="projet-2.html" style="--pc:#16614A; --pc-on:#FAFAF7; --pc-t:#16614A;">
       <div class="project-visual">
-        <div class="placeholder"><span class="mono">Visuel projet 02</span></div>
+        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">02</span></div>
       </div>
       <div class="project-info">
         <p class="mono project-meta">2023 · UX/UI Web</p>
         <h3>Site client — à renommer</h3>
         <p class="project-desc">Conception complète d'un site, du wireframe à la maquette haute fidélité livrée aux développeurs.</p>
+        <span class="mono project-cta">Voir le projet <i>→</i></span>
       </div>
     </a>
 
-    <!-- PROJET 3 -->
-    <a class="project" href="projet-3.html">
+    <!-- PROJET 3 — orange -->
+    <a class="project" href="projet-3.html" style="--pc:#E8420A; --pc-on:#FAFAF7; --pc-t:#E8420A;">
       <div class="project-visual">
-        <div class="placeholder"><span class="mono">Visuel projet 03</span></div>
+        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">03</span></div>
       </div>
       <div class="project-info">
         <p class="mono project-meta">2025 · Side project · IA</p>
         <h3>Climbing Analyzer</h3>
         <p class="project-desc">Un outil d'analyse vidéo de séances d'escalade qui génère des rapports de coaching. Conception de l'UX et de l'architecture du rapport.</p>
+        <span class="mono project-cta">Voir le projet <i>→</i></span>
       </div>
     </a>
 
-    <!-- PROJET 4 -->
-    <a class="project" href="projet-4.html">
+    <!-- PROJET 4 — rose -->
+    <a class="project" href="projet-4.html" style="--pc:#F3A7C4; --pc-on:#141414; --pc-t:#B83C74;">
       <div class="project-visual">
-        <div class="placeholder"><span class="mono">Visuel projet 04</span></div>
+        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">04</span></div>
       </div>
       <div class="project-info">
         <p class="mono project-meta">2021 · Graphisme & UI</p>
         <h3>Resonnance — à préciser</h3>
-        <p class="project-desc">Conception UX/UI de la maquette du site, visuels réseaux sociaux et supports.</p>
+        <p class="project-desc">Conception de la maquette du site, visuels réseaux sociaux et supports.</p>
+        <span class="mono project-cta">Voir le projet <i>→</i></span>
       </div>
     </a>
   </section>
 
-  <!-- À PROPOS COURT -->
-  <section class="about-short">
-    <div class="section-head">
-      <h2 class="mono">À propos</h2>
+  <!-- À PROPOS -->
+  <section class="band-dark">
+    <div class="hold" data-depth="30" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><path d="M30 92c-4-30 20-58 54-62 34-4 54 12 78 10s38 18 34 46c-4 28-28 50-62 56-34 6-56-6-76-18S34 122 30 92z"/><circle class="h-rim" cx="102" cy="96" r="9" style="fill:var(--ink)"/><circle cx="102" cy="96" r="3.5" style="fill:var(--rose)"/></svg>
     </div>
-    <p class="about-text">Designer formé à la direction artistique, passé par trois ans d'agence où j'ai conçu des interfaces web et des identités de marque, de la maquette au livrable final. Sensibilité forte pour la typographie et les systèmes. Quand je ne dessine pas de grilles, je grimpe ou je produis de la musique.</p>
+    <div class="section-head">
+      <h2>À propos</h2>
+    </div>
+    <p class="about-text">Designer formé à la direction artistique, passé par trois ans d'agence où j'ai conçu des interfaces web et des identités de marque, de la maquette au livrable final. Sensibilité forte pour la typographie et les systèmes. Quand je ne dessine pas de grilles, <em>je grimpe</em> ou je produis de la musique.</p>
     <a href="a-propos.html" class="link-arrow">En savoir plus →</a>
   </section>
 
   <!-- CONTACT -->
   <section class="contact-cta" id="contact">
-    <h2>Travaillons ensemble.</h2>
+    <div class="hold" data-depth="40" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><path d="M104 14c34 4 70 28 78 64 8 36-14 70-40 90-26 20-62 26-90 12S8 132 10 100 22 40 48 24c18-11 36-12 56-10z"/><circle cx="100" cy="98" r="9" style="fill:var(--accent)"/><circle cx="100" cy="98" r="3.5" style="fill:var(--ink)"/></svg>
+    </div>
+    <h2 data-split>Travaillons <em>ensemble.</em></h2>
     <a href="mailto:nans.gabjullien@gmail.com" class="mail-big">nans.gabjullien@gmail.com</a>
     <p class="mono contact-sub">Disponible pour un poste ou une mission · Aix · Marseille · remote</p>
   </section>
@@ -134,5 +176,6 @@
   </div>
 </footer>
 
+<script src="main.js" defer></script>
 </body>
 </html>

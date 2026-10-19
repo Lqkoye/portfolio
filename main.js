@@ -65,6 +65,34 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+
+  /* 3b. Copier l'adresse email */
+  let toast;
+  const showToast = msg => {
+    if (!toast) { toast = document.createElement('div'); toast.className = 'toast'; toast.setAttribute('role','status'); document.body.append(toast); }
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast.t);
+    showToast.t = setTimeout(() => toast.classList.remove('show'), 2200);
+  };
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    const label = btn.textContent;
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const t = document.createElement('textarea');
+        t.value = text; document.body.append(t); t.select();
+        document.execCommand('copy'); t.remove();
+      }
+      btn.textContent = 'Copiée ✓';
+      btn.classList.add('is-done');
+      showToast('Adresse copiée dans le presse-papiers');
+      setTimeout(() => { btn.textContent = label; btn.classList.remove('is-done'); }, 2200);
+    });
+  });
+
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;
 

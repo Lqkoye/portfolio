@@ -143,50 +143,83 @@
     </a>
   </section>
 
-  <!-- À PROPOS -->
-  <section class="band-dark">
-    <div class="hold" data-depth="30" aria-hidden="true">
-      <svg viewBox="0 0 200 200"><path d="M30 92c-4-30 20-58 54-62 34-4 54 12 78 10s38 18 34 46c-4 28-28 50-62 56-34 6-56-6-76-18S34 122 30 92z"/><circle class="h-rim" cx="102" cy="96" r="9" style="fill:var(--ink)"/><circle cx="102" cy="96" r="3.5" style="fill:var(--rose)"/></svg>
+  <!-- À PROPOS : LE TOPO -->
+  <section class="topo-band" id="a-propos">
+    <div class="topo-intro">
+      <p class="mono topo-kicker">À propos — le topo</p>
+      <h2 class="topo-title" data-split>Un parcours qui se grimpe <em>prise par prise.</em></h2>
+      <p class="topo-text">Formé à la direction artistique, passé par trois ans d'agence, je conçois des interfaces et des identités avec la même exigence : une bonne grille, des choix assumés, rien de gratuit. Et quand je ne dessine pas, je grimpe.</p>
+      <a href="a-propos.html" class="link-arrow">Lire la suite →</a>
     </div>
-    <div class="section-head">
-      <h2>À propos</h2>
-    </div>
-    <p class="about-text">Designer formé à la direction artistique, passé par trois ans d'agence où j'ai conçu des interfaces web et des identités de marque, de la maquette au livrable final. Sensibilité forte pour la typographie et les systèmes. Quand je ne dessine pas de grilles, <em>je grimpe</em> ou je produis de la musique.</p>
-    <a href="a-propos.html" class="link-arrow">En savoir plus →</a>
+
+    <ol class="topo" aria-label="Parcours">
+      <li style="--c:#1FA463; --rd:.05s">
+        <span class="mono topo-step">Sommet · aujourd'hui</span>
+        <strong>Disponible</strong>
+        <span class="topo-sub">UX/UI design et graphisme, en poste ou en mission</span>
+      </li>
+      <li style="--c:var(--rose); --rd:.15s">
+        <span class="mono topo-step">2022 — 2024</span>
+        <strong>Mastère Direction Artistique</strong>
+        <span class="topo-sub">Spécialité UX/UI · Ynov Aix</span>
+      </li>
+      <li style="--c:var(--accent); --rd:.25s">
+        <span class="mono topo-step">2021 — 2024</span>
+        <strong>Alternance Graphiste / UI UX</strong>
+        <span class="topo-sub">Qwamplify · agence de marketing digital</span>
+      </li>
+      <li style="--c:var(--cobalt); --rd:.35s">
+        <span class="mono topo-step">2021</span>
+        <strong>Stage Graphiste / Webdesign</strong>
+        <span class="topo-sub">Resonnance</span>
+      </li>
+      <li style="--c:var(--sun); --rd:.45s">
+        <span class="mono topo-step">Départ · 2019 — 2022</span>
+        <strong>Licence Création & Digital Design</strong>
+        <span class="topo-sub">Ynov Aix</span>
+      </li>
+    </ol>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact-cta" id="contact">
-    <div class="hold" data-depth="40" aria-hidden="true">
-      <svg viewBox="0 0 200 200"><path d="M104 14c34 4 70 28 78 64 8 36-14 70-40 90-26 20-62 26-90 12S8 132 10 100 22 40 48 24c18-11 36-12 56-10z"/><circle cx="100" cy="98" r="9" style="fill:var(--accent)"/><circle cx="100" cy="98" r="3.5" style="fill:var(--ink)"/></svg>
+  <!-- CONTACT : LA PRISE -->
+  <section class="reach" id="contact">
+    <div class="reach-text">
+      <p class="mono">Contact</p>
+      <h2 data-split>Une voie <em>à ouvrir ?</em></h2>
+      <p class="reach-sub">Un poste, une mission, un projet ou une simple question. Attrape la prise, je réponds vite.</p>
+      <div class="reach-links">
+        <button type="button" class="pill" data-copy="nans.gabjullien@gmail.com">Copier l'email</button>
+        <a href="#" class="pill" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="CV-Nans-Jullien.pdf" class="pill" target="_blank" rel="noopener">CV (PDF) ↗</a>
+      </div>
     </div>
-    <h2 data-split>Travaillons <em>ensemble.</em></h2>
-    <div class="mail-row"><a href="mailto:nans.gabjullien@gmail.com" class="mail-big">nans.gabjullien@gmail.com</a><button type="button" class="copy-btn" data-copy="nans.gabjullien@gmail.com">Copier l'adresse</button></div>
-    <p class="mono contact-sub">Disponible pour un poste ou une mission · Aix · Marseille · remote</p>
+    <a href="mailto:nans.gabjullien@gmail.com" class="grab" aria-label="M'écrire un email">
+      <span class="grab-hole" aria-hidden="true"></span>
+      <span class="grab-label">Écris-moi</span>
+      <span class="grab-mail mono">nans.gabjullien@gmail.com</span>
+    </a>
   </section>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-col">
-    <p class="mono footer-label">Le site</p>
-    <a href="#projets">Projets</a>
-    <a href="a-propos.html">À propos</a>
-    <a href="contact.html">Contact</a>
+<footer class="site-foot">
+  <div class="foot-top">
+    <nav class="foot-nav" aria-label="Pied de page">
+      <a href="index.html#projets">Projets</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="CV-Nans-Jullien.pdf" target="_blank" rel="noopener">CV ↗</a>
+    </nav>
+    <button type="button" class="to-top" data-top>Haut de page <i>↑</i></button>
   </div>
-  <div class="footer-col">
-    <p class="mono footer-label">Ailleurs</p>
-    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="CV-Nans-Jullien.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+  <div class="foot-meta">
+    <span class="mono foot-live"><b class="foot-dot"></b>Disponible</span>
+    <span class="mono">Aix-en-Provence · <time data-clock>--:--</time></span>
+    <span class="mono">43.53°N 5.45°E</span>
   </div>
-  <div class="footer-col">
-    <p class="mono footer-label">En ce moment</p>
-    <p class="footer-status">Disponible dès maintenant</p>
-    <p class="footer-status-sub mono">Aix-en-Provence, heure de Paris</p>
-  </div>
-  <div class="footer-bottom">
-    <p class="mono">© 2026 Nans Jullien — UX/UI Designer & Graphiste</p>
-  </div>
+  <p class="foot-word" aria-hidden="true">Nans <em>Jullien</em></p>
+  <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
 </footer>
 
 <script src="main.js" defer></script>

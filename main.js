@@ -33,7 +33,7 @@
 
   /* 2. Apparition au scroll */
   const auto = [
-    '.hero-kicker', '.hero-sub', '.hero-actions', '.section-head', '.project',
+    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-links', '.hero-actions', '.section-head', '.project',
     '.about-text', '.link-arrow', '.mail-big', '.contact-sub',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
     '.project-images > *', '.project-nav', '.about-grid > *', '.about-section',
@@ -42,7 +42,7 @@
   document.querySelectorAll(auto).forEach(el => el.classList.add('reveal'));
   document.querySelectorAll('.contact-lines a').forEach((a, i) => a.style.setProperty('--rd', `${i * 0.08}s`));
 
-  const targets = document.querySelectorAll('.reveal, [data-split], .hold');
+  const targets = document.querySelectorAll('.reveal, [data-split], .hold, .topo');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -92,6 +92,18 @@
       setTimeout(() => { btn.textContent = label; btn.classList.remove('is-done'); }, 2200);
     });
   });
+
+
+  /* 3c. Horloge d'Aix + retour en haut */
+  const clocks = document.querySelectorAll('[data-clock]');
+  const tick = () => {
+    const t = new Intl.DateTimeFormat('fr-FR', { hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris' }).format(new Date());
+    clocks.forEach(c => { c.textContent = t; });
+  };
+  if (clocks.length) { tick(); setInterval(tick, 15000); }
+  document.querySelectorAll('[data-top]').forEach(b => b.addEventListener('click', () => {
+    scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  }));
 
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;

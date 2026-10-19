@@ -58,9 +58,11 @@
   const bar = document.createElement('div');
   bar.className = 'progress';
   document.body.append(bar);
+  const nav = document.querySelector('.nav');
   const onScroll = () => {
     const h = root.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+    nav && nav.classList.toggle('is-scrolled', scrollY > 30);
   };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();

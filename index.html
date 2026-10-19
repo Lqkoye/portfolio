@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 
@@ -60,15 +60,18 @@
 
     <p class="mono hero-kicker">UX/UI Designer · Graphiste — Aix · Marseille</p>
     <h1 class="hero-title" data-split>Je conçois des interfaces <em>claires</em> et des identités qui tiennent debout.</h1>
-    <p class="hero-sub" style="--rd:.5s">Trois ans en agence sur des projets web et produit, un Mastère en direction artistique, et une obsession pour les systèmes : grilles, composants, cohérence.</p>
-    <div class="hero-actions" style="--rd:.65s">
-      <a href="#projets" class="btn btn-primary">Voir les projets <i>↓</i></a>
-      <a href="CV-Nans-Jullien.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Mon CV (PDF) <i>↗</i></a>
+    <p class="hero-sub" style="--rd:.5s">Je dessine des produits numériques et des identités visuelles, du premier wireframe au fichier final, avec une seule règle : chaque détail doit servir l'usage.</p>
+    <dl class="hero-facts" style="--rd:.6s">
+      <div><dt class="mono">Basé à</dt><dd>Aix-en-Provence</dd></div>
+      <div><dt class="mono">Expérience</dt><dd>3 ans en agence</dd></div>
+      <div><dt class="mono">Spécialités</dt><dd>UX/UI · Graphisme</dd></div>
+    </dl>
+    <div class="hero-actions" style="--rd:.7s">
+      <a href="#projets" class="btn btn-primary">Découvrir les projets <i>↓</i></a>
     </div>
 
     <div class="hero-foot">
       <span class="mono scroll-hint"><i>↓</i> Défiler</span>
-      <span class="mono">Basé à Aix-en-Provence · 43.53°N 5.45°E</span>
     </div>
   </section>
 
@@ -84,59 +87,54 @@
       <h2>Projets sélectionnés</h2>
       <span class="mono section-count">(04)</span>
     </div>
-
-    <!-- PROJET 1 — cobalt -->
-    <a class="project" href="projet-1.html" style="--pc:#2A40E0; --pc-on:#FAFAF7; --pc-t:#2A40E0;">
-      <div class="project-visual">
-        <!-- REMPLACER tout le bloc <div class="placeholder">…</div> par : <img src="img/projet-1.jpg" alt="…"> -->
-        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">01</span></div>
-      </div>
-      <div class="project-info">
-        <p class="mono project-meta">2024 · Design produit</p>
-        <h3>Back-office Qwamplify</h3>
-        <p class="project-desc">Refonte d'interfaces de back-office : architecture de l'information, parcours utilisateurs et composants réutilisables.</p>
-        <span class="mono project-cta">Voir le projet <i>→</i></span>
-      </div>
-    </a>
-
-    <!-- PROJET 2 — sapin -->
-    <a class="project" href="projet-2.html" style="--pc:#141414; --pc-on:#FAFAF7; --pc-t:#141414;">
-      <div class="project-visual">
-        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">02</span></div>
-      </div>
-      <div class="project-info">
-        <p class="mono project-meta">2023 · UX/UI Web</p>
-        <h3>Site client — à renommer</h3>
-        <p class="project-desc">Conception complète d'un site, du wireframe à la maquette haute fidélité livrée aux développeurs.</p>
-        <span class="mono project-cta">Voir le projet <i>→</i></span>
-      </div>
-    </a>
-
-    <!-- PROJET 3 — orange -->
-    <a class="project" href="projet-3.html" style="--pc:#E8420A; --pc-on:#141414; --pc-t:#C2370A;">
-      <div class="project-visual">
-        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">03</span></div>
-      </div>
-      <div class="project-info">
-        <p class="mono project-meta">2025 · Side project · IA</p>
-        <h3>Climbing Analyzer</h3>
-        <p class="project-desc">Un outil d'analyse vidéo de séances d'escalade qui génère des rapports de coaching. Conception de l'UX et de l'architecture du rapport.</p>
-        <span class="mono project-cta">Voir le projet <i>→</i></span>
-      </div>
-    </a>
-
-    <!-- PROJET 4 — rose -->
-    <a class="project" href="projet-4.html" style="--pc:#F3A7C4; --pc-on:#141414; --pc-t:#B83C74;">
-      <div class="project-visual">
-        <div class="placeholder"><span class="mono ph-label">Visuel à venir</span><span class="ph-num">04</span></div>
-      </div>
-      <div class="project-info">
-        <p class="mono project-meta">2021 · Graphisme & UI</p>
-        <h3>Resonnance — à préciser</h3>
-        <p class="project-desc">Conception de la maquette du site, visuels réseaux sociaux et supports.</p>
-        <span class="mono project-cta">Voir le projet <i>→</i></span>
-      </div>
-    </a>
+    <div class="pindex-head mono" aria-hidden="true"><span>N°</span><span>Projet</span><span>Type</span><span>Année</span><span></span></div>
+    <ol class="pindex">
+      <li>
+        <a class="prow" href="projet-1.html" style="--pc:#2A40E0; --pc-on:#FAFAF7; --pc-t:#2A40E0;">
+          <span class="mono prow-n">01</span>
+          <span class="prow-main"><span class="prow-title">Back-office Qwamplify</span><span class="prow-desc">Architecture de l'information, parcours et composants pour des interfaces de gestion.</span></span>
+          <span class="mono prow-type">Design produit</span>
+          <span class="mono prow-year">2024</span>
+          <span class="prow-arrow" aria-hidden="true">→</span>
+          <!-- APERÇU : remplacer le contenu de prow-thumb par <img src="img/projet-1.jpg" alt=""> -->
+          <span class="prow-thumb" aria-hidden="true"><span class="ph-num">01</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="prow" href="projet-2.html" style="--pc:#141414; --pc-on:#FAFAF7; --pc-t:#141414;">
+          <span class="mono prow-n">02</span>
+          <span class="prow-main"><span class="prow-title">Site client — à renommer</span><span class="prow-desc">Un site conçu de A à Z, du wireframe à la maquette livrée aux développeurs.</span></span>
+          <span class="mono prow-type">UX/UI Web</span>
+          <span class="mono prow-year">2023</span>
+          <span class="prow-arrow" aria-hidden="true">→</span>
+          <!-- APERÇU : remplacer le contenu de prow-thumb par <img src="img/projet-2.jpg" alt=""> -->
+          <span class="prow-thumb" aria-hidden="true"><span class="ph-num">02</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="prow" href="projet-3.html" style="--pc:#E8420A; --pc-on:#141414; --pc-t:#C2370A;">
+          <span class="mono prow-n">03</span>
+          <span class="prow-main"><span class="prow-title">Climbing Analyzer</span><span class="prow-desc">Un outil d'analyse vidéo qui transforme une séance en rapport de coaching.</span></span>
+          <span class="mono prow-type">Side project · IA</span>
+          <span class="mono prow-year">2025</span>
+          <span class="prow-arrow" aria-hidden="true">→</span>
+          <!-- APERÇU : remplacer le contenu de prow-thumb par <img src="img/projet-3.jpg" alt=""> -->
+          <span class="prow-thumb" aria-hidden="true"><span class="ph-num">03</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="prow" href="projet-4.html" style="--pc:#F3A7C4; --pc-on:#141414; --pc-t:#B83C74;">
+          <span class="mono prow-n">04</span>
+          <span class="prow-main"><span class="prow-title">Resonnance — à préciser</span><span class="prow-desc">Maquette du site, visuels réseaux sociaux et supports de communication.</span></span>
+          <span class="mono prow-type">Graphisme & web</span>
+          <span class="mono prow-year">2021</span>
+          <span class="prow-arrow" aria-hidden="true">→</span>
+          <!-- APERÇU : remplacer le contenu de prow-thumb par <img src="img/projet-4.jpg" alt=""> -->
+          <span class="prow-thumb" aria-hidden="true"><span class="ph-num">04</span></span>
+        </a>
+      </li>
+    </ol>
+    <div class="pfloat" aria-hidden="true"></div>
   </section>
 
   <!-- À PROPOS : PARCOURS -->
@@ -151,8 +149,8 @@
     <ol class="topo" aria-label="Parcours">
       <li class="is-now" style="--rd:.05s">
         <span class="mono topo-step">Aujourd'hui</span>
-        <strong>Disponible</strong>
-        <span class="topo-sub">UX/UI design et graphisme, en poste ou en mission</span>
+        <strong>Ouvert aux opportunités</strong>
+        <span class="topo-sub">Postes UX/UI et graphisme, missions freelance</span>
       </li>
       <li style="--rd:.15s">
         <span class="mono topo-step">2022 — 2024</span>
@@ -189,7 +187,7 @@
       <li class="reach-row reach-row--main">
         <span class="mono reach-label">Email</span>
         <a href="mailto:nans.gabjullien@gmail.com" class="reach-value">nans.gabjullien@gmail.com</a>
-        <button type="button" class="pill" data-copy="nans.gabjullien@gmail.com">Copier</button>
+      <i class="reach-arrow" aria-hidden="true">↗</i>
       </li>
       <li class="reach-row">
         <span class="mono reach-label">Téléphone</span>
@@ -223,14 +221,14 @@
     <button type="button" class="to-top" data-top>Haut de page <i>↑</i></button>
   </div>
   <div class="foot-meta">
-    <span class="mono foot-live"><b class="foot-dot"></b>Disponible</span>
-    <span class="mono">Aix-en-Provence · <time data-clock>--:--</time></span>
-    <span class="mono">43.53°N 5.45°E</span>
+    <span class="mono">Conçu et codé à la main</span>
+    <span class="mono">Fraunces · Hanken Grotesk · Space Mono</span>
+    <span class="mono">Hébergé sur GitHub Pages</span>
   </div>
   <p class="foot-word" aria-hidden="true">Nans <em>Jullien</em></p>
-  <p class="mono foot-copy">© 2026 Nans Jullien · Conçu et codé avec soin, sans template.</p>
+  <p class="mono foot-copy">© 2026 Nans Jullien · UX/UI Designer & Graphiste</p>
 </footer>
 
-<script src="main.js?v=13" defer></script>
+<script src="main.js?v=14" defer></script>
 </body>
 </html>

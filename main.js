@@ -45,7 +45,7 @@
 
   /* 2. Apparition au scroll */
   const auto = [
-    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-actions', '.section-head', '.project',
+    '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-facts', '.hero-actions', '.section-head', '.pindex li',
     '.link-arrow',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
     '.project-images > *', '.project-nav', '.about-grid > *', '.about-section', '.about-cta'
@@ -78,41 +78,8 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* 3b. Copier l'adresse email */
-  let toast;
-  const showToast = msg => {
-    if (!toast) { toast = document.createElement('div'); toast.className = 'toast'; toast.setAttribute('role','status'); document.body.append(toast); }
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(showToast.t);
-    showToast.t = setTimeout(() => toast.classList.remove('show'), 2200);
-  };
-  document.querySelectorAll('[data-copy]').forEach(btn => {
-    const tgt = btn.querySelector('[data-copy-label]') || btn;
-    const label = tgt.textContent;
-    btn.addEventListener('click', async () => {
-      const text = btn.dataset.copy;
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch {
-        const t = document.createElement('textarea');
-        t.value = text; document.body.append(t); t.select();
-        document.execCommand('copy'); t.remove();
-      }
-      tgt.textContent = 'Copiée ✓';
-      btn.classList.add('is-done');
-      showToast('Adresse copiée dans le presse-papiers');
-      setTimeout(() => { tgt.textContent = label; btn.classList.remove('is-done'); }, 2200);
-    });
-  });
 
-  /* 3c. Horloge d'Aix + retour en haut */
-  const clocks = document.querySelectorAll('[data-clock]');
-  const tick = () => {
-    const t = new Intl.DateTimeFormat('fr-FR', { hour:'2-digit', minute:'2-digit', timeZone:'Europe/Paris' }).format(new Date());
-    clocks.forEach(c => { c.textContent = t; });
-  };
-  if (clocks.length) { tick(); setInterval(tick, 15000); }
+  /* 3c. Retour en haut */
   document.querySelectorAll('[data-top]').forEach(b => b.addEventListener('click', () => {
     scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   }));
@@ -179,6 +146,29 @@
     });
     addEventListener('resize', () => moveTo(current()));
     document.fonts && document.fonts.ready.then(() => moveTo(current()));
+  }
+
+
+  /* 3f. Index des projets : aperçu qui suit la souris */
+  const pf = document.querySelector('.pfloat');
+  if (pf && matchMedia('(pointer: fine)').matches) {
+    let px = 0, py = 0, fx = 0, fy = 0, active = false, raf2 = 0;
+    const follow = () => {
+      fx += (px - fx) * 0.18; fy += (py - fy) * 0.18;
+      pf.style.transform = `translate3d(${fx + 36}px, ${fy - 96}px, 0)`;
+      raf2 = active || Math.abs(px - fx) > .5 ? requestAnimationFrame(follow) : 0;
+    };
+    document.querySelectorAll('.prow').forEach(row => {
+      row.addEventListener('mouseenter', e => {
+        pf.innerHTML = row.querySelector('.prow-thumb').innerHTML;
+        ['--pc', '--pc-on'].forEach(v => pf.style.setProperty(v, row.style.getPropertyValue(v)));
+        if (!active) { fx = px = e.clientX; fy = py = e.clientY; }
+        active = true; pf.classList.add('on');
+        if (!raf2) raf2 = requestAnimationFrame(follow);
+      });
+      row.addEventListener('mousemove', e => { px = e.clientX; py = e.clientY; });
+      row.addEventListener('mouseleave', () => { active = false; pf.classList.remove('on'); });
+    });
   }
 
   /* 4. Curseur + parallaxe des prises (souris uniquement) */

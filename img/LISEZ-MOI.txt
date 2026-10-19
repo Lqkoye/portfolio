@@ -1,0 +1,35 @@
+DOSSIER IMAGES — Nans Jullien Portfolio
+========================================
+
+Dépose ici les visuels de tes projets. Le site les cherche à ces emplacements :
+
+PAGE D'ACCUEIL (vignettes des projets) :
+  img/projet-1.jpg   → Back-office Qwamplify
+  img/projet-2.jpg   → Site client
+  img/projet-3.jpg   → Climbing Analyzer
+  img/projet-4.jpg   → Resonnance
+
+PAGES PROJET (visuel principal + galerie) :
+  img/projet-1-hero.jpg
+  img/projet-1-01.jpg, img/projet-1-02.jpg ...
+  (idem pour projet-2, 3, 4)
+
+PORTRAIT (page à propos) :
+  img/portrait.jpg
+
+COMMENT ÇA MARCHE :
+Pour l'instant chaque emplacement affiche un rectangle hachuré "placeholder".
+Pour mettre ta vraie image, ouvre le fichier HTML concerné et remplace le bloc :
+
+    <div class="placeholder"><span class="mono">Visuel projet 01</span></div>
+
+par :
+
+    <img src="img/projet-1.jpg" alt="Description de l'image">
+
+FORMATS CONSEILLÉS :
+  - Vignettes accueil : 1200 × 900 px (ratio 4:3)
+  - Visuel principal projet : 1600 × 900 px (ratio 16:9)
+  - Portrait : 900 × 1200 px (ratio 3:4)
+  - .jpg pour les photos, .png si besoin de transparence
+  - Compresse-les (tinypng.com) pour que le site reste rapide.

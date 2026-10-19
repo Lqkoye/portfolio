@@ -108,6 +108,32 @@
 
 
 
+
+  /* 3d. Sangles : défilement lié au scroll */
+  const tapes = document.querySelector('.tapes');
+  if (tapes && !reduce) {
+    tapes.classList.add('is-live');
+    const tracks = [...tapes.querySelectorAll('.tape-track')].map(el => ({
+      el, dir: +el.dataset.dir || 1, x: 0, half: el.scrollWidth / 2
+    }));
+    let lastY = scrollY, vel = 0, scrollDir = 1;
+    addEventListener('resize', () => tracks.forEach(t => { t.half = t.el.scrollWidth / 2; }));
+    const run = () => {
+      const dy = scrollY - lastY; lastY = scrollY;
+      if (dy !== 0) scrollDir = dy > 0 ? 1 : -1;
+      vel += (Math.abs(dy) - vel) * 0.1;
+      const speed = 0.6 + Math.min(vel, 60) * 0.18;
+      tracks.forEach(t => {
+        t.x -= speed * t.dir * scrollDir;
+        if (t.x <= -t.half) t.x += t.half;
+        if (t.x > 0) t.x -= t.half;
+        t.el.style.transform = `translate3d(${t.x.toFixed(2)}px,0,0)`;
+      });
+      requestAnimationFrame(run);
+    };
+    run();
+  }
+
   /* 4. Curseur + parallaxe des prises (souris uniquement) */
   if (reduce || !matchMedia('(pointer: fine)').matches) return;
 

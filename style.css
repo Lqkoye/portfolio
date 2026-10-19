@@ -198,20 +198,51 @@ img{ max-width:100%; display:block; }
 .btn-ghost{ color:var(--ink); background:linear-gradient(var(--ink),var(--ink)) 0 100% / 100% 0 no-repeat; }
 .btn-ghost:hover{ color:var(--bg); background-size:100% 100%; }
 
-/* ---------- MARQUEE ---------- */
-.marquee{ background:var(--ink); color:var(--bg); overflow:hidden; padding:20px 0; }
-.marquee-track{ display:flex; width:max-content; animation:marquee 30s linear infinite; }
-.marquee:hover .marquee-track{ animation-play-state:paused; }
-.marquee-track span{
-  font-family:var(--display); font-style:italic; font-weight:400;
-  font-size:clamp(24px,3.2vw,44px); white-space:nowrap; padding:0 26px;
+/* ---------- SANGLES (bandeaux croisés) ---------- */
+.tapes{
+  position:relative; overflow:hidden;
+  height:clamp(190px,19vw,260px); margin:0;
+}
+.tape{
+  position:absolute; left:-6%; width:112%; top:50%;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.45);
+}
+.tape--a{ background:var(--accent); color:var(--ink); padding:clamp(12px,1.3vw,18px) 0; transform:translateY(-50%) rotate(-3.2deg); z-index:2; }
+.tape--b{ background:var(--ink); color:var(--bg); padding:clamp(10px,1vw,14px) 0; transform:translateY(-50%) rotate(3deg); z-index:1; }
+/* coutures de sangle */
+.tape::before, .tape::after{
+  content:""; position:absolute; left:0; right:0; height:0;
+  border-top:1.5px dashed currentColor; opacity:.35;
+}
+.tape::before{ top:6px; }
+.tape::after{ bottom:6px; }
+.tape-track{ display:flex; align-items:center; width:max-content; will-change:transform; }
+.tape--a span{
+  font-family:var(--display); font-style:italic; font-weight:500; white-space:nowrap;
+  font-size:clamp(26px,3.4vw,48px); line-height:1; padding:0 22px;
   font-variation-settings:'opsz' 96;
 }
-.marquee-track b{ font-weight:400; font-style:normal; font-family:var(--sans); font-size:clamp(18px,2vw,26px); align-self:center; }
-.marquee-track b:nth-of-type(3n+1){ color:var(--accent); }
-.marquee-track b:nth-of-type(3n+2){ color:var(--sun); }
-.marquee-track b:nth-of-type(3n){ color:var(--rose); }
-@keyframes marquee{ to{ transform:translateX(-50%); } }
+.t-hold{ width:clamp(22px,2.2vw,32px); height:auto; flex:none; }
+.t-hold path{ fill:var(--ink); }
+.t-hold circle{ fill:var(--accent); }
+.tape--a .tape-track > svg:nth-of-type(3n+2) path{ fill:var(--bg); }
+.tape--b span{
+  font-family:var(--mono); font-size:clamp(11px,1vw,14px); letter-spacing:.12em;
+  text-transform:uppercase; white-space:nowrap; padding:0 20px;
+}
+.tape--b i{ width:9px; height:9px; flex:none; border-radius:42% 58% 63% 37% / 45% 41% 59% 55%; background:var(--rose); }
+.tape--b i:nth-of-type(3n+2){ background:var(--sun); }
+.tape--b i:nth-of-type(3n){ background:#6E83FF; }
+/* sans JS : défilement CSS */
+.tape--a .tape-track{ animation:tape 38s linear infinite; }
+.tape--b .tape-track{ animation:tape 46s linear infinite reverse; }
+.tapes.is-live .tape-track{ animation:none; }
+@keyframes tape{ to{ transform:translateX(-50%); } }
+@media (max-width:760px){
+  .tapes{ height:230px; }
+  .tape--a{ transform:translateY(-50%) rotate(-9deg); }
+  .tape--b{ transform:translateY(-50%) rotate(8deg); }
+}
 
 /* ---------- SECTION HEAD ---------- */
 .section-head{
@@ -671,6 +702,7 @@ img{ max-width:100%; display:block; }
   .foot-meta{ gap:10px 24px; }
 }
 @media (prefers-reduced-motion:reduce){
+  .tape-track{ transform:none !important; }
   .topo::before{ transform:none; }
   .topo li, .js .topo:not(.in) li{ opacity:1; transform:none; }
 }

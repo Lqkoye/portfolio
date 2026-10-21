@@ -171,38 +171,21 @@
     });
   }
 
-  /* 4. Curseur + parallaxe des prises (souris uniquement) */
-  if (reduce || !matchMedia('(pointer: fine)').matches) return;
-
-  const cursor = document.createElement('div');
-  cursor.className = 'cursor';
-  document.body.append(cursor);
-
-  let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my;
-  addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.classList.add('on');
-  }, { passive: true });
-  document.addEventListener('mouseleave', () => cursor.classList.remove('on'));
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest('a, button')) cursor.classList.add('is-hover');
-  });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest('a, button')) cursor.classList.remove('is-hover');
-  });
-
+  /* 4. Parallaxe des prises (souris uniquement, s'arrête au repos) */
   const holds = [...document.querySelectorAll('.hold')];
-  const loop = () => {
-    cx += (mx - cx) * 0.22;
-    cy += (my - cy) * 0.22;
-    cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
-    const nx = mx / innerWidth - 0.5;
-    const ny = my / innerHeight - 0.5;
+  if (reduce || !holds.length || !matchMedia('(pointer: fine)').matches) return;
+  let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my, rafP = 0;
+  const step = () => {
+    cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12;
+    const nx = cx / innerWidth - 0.5, ny = cy / innerHeight - 0.5;
     holds.forEach(h => {
       const d = +h.dataset.depth || 24;
       h.style.transform = `translate3d(${(-nx * d).toFixed(1)}px, ${(-ny * d).toFixed(1)}px, 0)`;
     });
-    requestAnimationFrame(loop);
+    rafP = Math.abs(mx - cx) + Math.abs(my - cy) > 0.5 ? requestAnimationFrame(step) : 0;
   };
-  loop();
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!rafP) rafP = requestAnimationFrame(step);
+  }, { passive: true });
 })();

@@ -126,13 +126,16 @@
       ind.classList.add('on');
     };
     const current = () => links.find(a => a.classList.contains('is-active') || a.getAttribute('aria-current') === 'page');
-    const sections = links.map(a => a.getAttribute('href')).filter(h => h.startsWith('#')).map(h => document.querySelector(h)).filter(Boolean);
+    // sur l'accueil, chaque lien suit sa section (même si le lien mène à la page dédiée)
+    const SECTION = { projets: 'projets', apropos: 'a-propos', contact: 'contact' };
+    const sections = links.map(a => document.getElementById(SECTION[a.dataset.nav])).filter(Boolean);
+    const keyOf = sec => Object.keys(SECTION).find(k => SECTION[k] === sec.id);
     if (sections.length) {
       const spyScroll = () => {
         const mid = innerHeight * 0.4;
         let hit = null;
         sections.forEach(sec => { const r = sec.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) hit = sec; });
-        links.forEach(a => a.classList.toggle('is-active', !!hit && a.getAttribute('href') === '#' + hit.id));
+        links.forEach(a => a.classList.toggle('is-active', !!hit && a.dataset.nav === keyOf(hit)));
         moveTo(current());
       };
       addEventListener('scroll', spyScroll, { passive: true });

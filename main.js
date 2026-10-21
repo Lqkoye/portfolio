@@ -48,7 +48,7 @@
     '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-facts', '.hero-actions', '.section-head', '.pindex li',
     '.link-arrow',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
-    '.project-images > *', '.project-nav', '.about-grid > *', '.about-section', '.about-cta'
+    '.project-images > *', '.project-nav', '.about-grid > *', '.about-section', '.about-cta', '.reach-portrait'
   ].join(',');
   document.querySelectorAll(auto).forEach(el => el.classList.add('reveal'));
   document.querySelectorAll('.reach-row').forEach(row => row.style.setProperty('--rd', `${[...row.parentElement.children].indexOf(row) * 0.08}s`));

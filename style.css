@@ -674,3 +674,14 @@ img{ max-width:100%; display:block; }
   .pfloat{ display:none; }
 }
 @media (pointer:coarse){ .pfloat{ display:none; } }
+
+/* ---------- PORTRAIT ---------- */
+.about-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+.about-portrait{ background:#E6E6E0; }
+.reach-portrait{ margin-top:40px; max-width:300px; }
+.reach-portrait img{
+  width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; display:block;
+  border-radius:var(--radius); background:#E6E6E0;
+}
+.reach-portrait figcaption{ margin-top:12px; color:var(--gray); }
+@media (max-width:900px){ .reach-portrait{ max-width:260px; } }

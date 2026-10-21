@@ -79,6 +79,32 @@
   onScroll();
 
 
+  /* 3a. Menu mobile */
+  const navLinks = nav && nav.querySelector('.nav-links');
+  if (nav && navLinks) {
+    navLinks.id = 'nav-menu';
+    const tg = document.createElement('button');
+    tg.type = 'button'; tg.className = 'nav-toggle';
+    tg.setAttribute('aria-expanded', 'false'); tg.setAttribute('aria-controls', 'nav-menu');
+    tg.innerHTML = '<span class="nt-label">Menu</span><span class="nt-icon" aria-hidden="true"><i></i><i></i></span>';
+    nav.querySelector('.nav-end').prepend(tg);
+    const mail = nav.querySelector('.nav-cta');
+    if (mail) {
+      const m = document.createElement('a');
+      m.href = mail.getAttribute('href'); m.className = 'nav-menu-mail'; m.textContent = 'Écris-moi ↗';
+      navLinks.append(m);
+    }
+    const setOpen = open => {
+      nav.classList.toggle('is-open', open);
+      tg.setAttribute('aria-expanded', String(open));
+    };
+    tg.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
+    navLinks.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); tg.focus(); } });
+    document.addEventListener('click', e => { if (!nav.contains(e.target)) setOpen(false); });
+    matchMedia('(min-width: 761px)').addEventListener('change', () => setOpen(false));
+  }
+
   /* 3b. Fond du hero : pause hors écran */
   const hero = document.querySelector('.hero');
   if (hero && 'IntersectionObserver' in window) {
@@ -124,7 +150,7 @@
   /* 3e. Navigation : prise qui suit la section active */
   const ind = document.querySelector('.nav-ind');
   if (ind) {
-    const links = [...document.querySelectorAll('.nav-links a')];
+    const links = [...document.querySelectorAll('.nav-links a[data-nav]')];
     const moveTo = a => {
       if (!a) { ind.classList.remove('on'); return; }
       const box = a.parentElement.getBoundingClientRect(), r = a.getBoundingClientRect();

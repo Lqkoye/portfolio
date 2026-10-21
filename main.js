@@ -46,7 +46,7 @@
   /* 2. Apparition au scroll */
   const auto = [
     '.hero-kicker', '.hero-sub', '.topo-kicker', '.topo-text', '.reach-sub', '.reach-row', '.hero-facts', '.hero-actions', '.section-head', '.pindex li',
-    '.link-arrow',
+    '.link-arrow', '.skills-intro', '.skill', '.stats > div', '.pfeat', '.offduty',
     '.project-back', '.project-tags', '.project-hero-visual', '.project-block',
     '.project-images > *', '.project-nav', '.about-grid > *', '.about-section', '.about-cta', '.reach-portrait'
   ].join(',');

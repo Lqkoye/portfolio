@@ -174,6 +174,27 @@
     });
   }
 
+  /* 3g. Curseur : pastille en mode différence qui grossit sur les liens */
+  if (!reduce && matchMedia('(pointer: fine)').matches) {
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    document.body.append(cursor);
+    let tx = innerWidth / 2, ty = innerHeight / 2, kx = tx, ky = ty, rafC = 0;
+    const glide = () => {
+      kx += (tx - kx) * 0.22; ky += (ty - ky) * 0.22;
+      cursor.style.transform = `translate3d(${kx}px, ${ky}px, 0)`;
+      rafC = Math.abs(tx - kx) + Math.abs(ty - ky) > 0.3 ? requestAnimationFrame(glide) : 0;
+    };
+    addEventListener('mousemove', e => {
+      tx = e.clientX; ty = e.clientY;
+      cursor.classList.add('on');
+      if (!rafC) rafC = requestAnimationFrame(glide);
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('on'));
+    document.addEventListener('mouseover', e => cursor.classList.toggle('is-hover', !!e.target.closest('a, button')));
+  }
+
   /* 4. Parallaxe des prises (souris uniquement, s'arrête au repos) */
   const holds = [...document.querySelectorAll('.hold')];
   if (reduce || !holds.length || !matchMedia('(pointer: fine)').matches) return;

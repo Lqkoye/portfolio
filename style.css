@@ -715,3 +715,14 @@ img{ max-width:100%; display:block; }
 .topo-title{ max-width:12ch; }
 .topo-band .topo-title{ color:var(--bg); }
 .section-count{ font-size:13px; padding-bottom:12px; }
+
+/* ---------- CURSEUR ---------- */
+.cursor{
+  position:fixed; top:0; left:0; z-index:200; pointer-events:none;
+  width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%;
+  background:#fff; mix-blend-mode:difference; opacity:0;
+  transition:width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), opacity .3s;
+}
+.cursor.on{ opacity:1; }
+.cursor.is-hover{ width:64px; height:64px; margin:-32px 0 0 -32px; }
+@media (pointer:coarse), (prefers-reduced-motion:reduce){ .cursor{ display:none; } }

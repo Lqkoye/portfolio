@@ -79,6 +79,12 @@
   onScroll();
 
 
+  /* 3b. Fond du hero : pause hors écran */
+  const hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => hero.classList.toggle('is-off', !e.isIntersecting)).observe(hero);
+  }
+
   /* 3c. Retour en haut */
   document.querySelectorAll('[data-top]').forEach(b => b.addEventListener('click', () => {
     scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });

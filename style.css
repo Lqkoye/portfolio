@@ -148,7 +148,7 @@ img{ max-width:100%; display:block; }
   display:flex; flex-direction:column; justify-content:center;
   padding:6vh var(--px) 10vh;
 }
-.hero > :not(.hero-shapes):not(.hero-foot){ position:relative; z-index:1; }
+.hero > :not(.hero-shapes):not(.hero-foot):not(.hero-bg){ position:relative; z-index:1; }
 .hero-shapes{ position:absolute; inset:0; z-index:0; }
 
 .hero .h1{ --s:clamp(160px,18vw,280px); top:13%; right:6%; color:var(--accent); --delay:.25s; --d:10s; }
@@ -888,3 +888,40 @@ body::after{
   .hcard-in{ animation:none; }
 }
 .off-pic .off-rim{ fill:var(--bg); stroke:none; }
+
+/* ---------- HERO : fond animé ---------- */
+.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.glow{
+  position:absolute; border-radius:50%; opacity:.55;
+  animation:glow-drift var(--t,22s) ease-in-out infinite alternate;
+}
+.g1{ width:62vw; height:62vw; right:-14vw; top:-26vw; --t:24s;
+  background:radial-gradient(closest-side, rgba(42,64,224,.30), rgba(42,64,224,0)); }
+.g2{ width:48vw; height:48vw; right:16vw; top:22vh; --t:19s; animation-delay:-6s;
+  background:radial-gradient(closest-side, rgba(232,66,10,.26), rgba(232,66,10,0)); }
+.g3{ width:56vw; height:56vw; left:-18vw; bottom:-30vw; --t:27s; animation-delay:-12s;
+  background:radial-gradient(closest-side, rgba(243,167,196,.55), rgba(243,167,196,0)); }
+@keyframes glow-drift{
+  0%  { transform:translate3d(0,0,0) scale(1); }
+  50% { transform:translate3d(-6vw,4vh,0) scale(1.12); }
+  100%{ transform:translate3d(4vw,-3vh,0) scale(.94); }
+}
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:radial-gradient(rgba(20,20,20,.16) 1px, transparent 1.4px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 75%);
+          mask-image:radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 75%);
+  animation:grid-pan 40s linear infinite;
+}
+@keyframes grid-pan{ to{ background-position:26px 26px; } }
+.hero.is-off .glow, .hero.is-off .hero-grid{ animation-play-state:paused; }
+@media (max-width:900px){
+  .g1{ width:120vw; height:120vw; right:-50vw; top:-50vw; }
+  .g2{ width:90vw; height:90vw; right:-30vw; top:40vh; }
+  .g3{ width:110vw; height:110vw; left:-50vw; bottom:-50vw; }
+}
+@media (prefers-reduced-motion:reduce){
+  .glow, .hero-grid{ animation:none; }
+}
+.hero-bg{ -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 140px); mask-image:linear-gradient(to bottom, transparent 0, #000 140px); }

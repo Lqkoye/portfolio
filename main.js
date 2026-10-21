@@ -101,6 +101,7 @@
     addEventListener('resize', () => tracks.forEach(t => { t.half = t.el.scrollWidth / 2; }));
     new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
+      tapes.classList.toggle('is-off', !visible);
       if (visible && !raf) raf = requestAnimationFrame(run);
     }).observe(tapes);
     const run = () => {
